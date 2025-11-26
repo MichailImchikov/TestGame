@@ -1,12 +1,11 @@
 using UnityEngine;
 
-public class SphereButtonClick : IActionButtonClick
+public class SphereButtonClick : IShape
 {
-    public GameObject Click(Vector3 position)
+    public GameObject Click()
     {
         GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-        position.y += 0.5f;
-        sphere.transform.position = position;
+        sphere.transform.position += Vector3.up * 0.5f;
         ApplyColorShader(sphere);
         return sphere;
     }

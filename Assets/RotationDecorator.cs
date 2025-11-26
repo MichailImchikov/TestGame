@@ -1,17 +1,17 @@
 using UnityEngine;
 
-public class RotationDecorator : IActionButtonClick
+public class RotationDecorator : IShape
 {
-    private IActionButtonClick wrapped;
+    private IShape wrapped;
 
-    public RotationDecorator(IActionButtonClick wrapped)
+    public RotationDecorator(IShape wrapped)
     {
         this.wrapped = wrapped;
     }
 
-    public GameObject Click(Vector3 position)
+    public GameObject Click()
     {
-        GameObject obj = wrapped.Click(position);
+        GameObject obj = wrapped.Click();
         obj.transform.Rotate(0f, 90f, 0f);
         return obj;
     }

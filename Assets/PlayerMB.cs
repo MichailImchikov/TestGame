@@ -5,9 +5,10 @@ public class PlayerMB : MonoBehaviour, PlayerInputController.IBaseActions
 {
     private PlayerInputController playerInputController;
     private Camera mainCamera;
-    private IActionButtonClick sphereButton;
-    private IActionButtonClick cubeButton;
-    private IActionButtonClick cylinderButton;
+    private IShape sphereButton;
+    private IShape cubeButton;
+    private IShape cylinderButton;
+    private CommandInvoker commandInvoker;
 
     [SerializeField] private LayerMask platformLayer;
 
@@ -18,9 +19,11 @@ public class PlayerMB : MonoBehaviour, PlayerInputController.IBaseActions
         playerInputController.Enable();
 
         mainCamera = Camera.main;
-        sphereButton =  new RedColorDecorator(new SphereButtonClick());
-        cubeButton = new ScaleDecorator( new CubeButtonClick());
-        cylinderButton = new RotationDecorator( new CylinderButtonClick());
+        commandInvoker = new CommandInvoker();
+        
+        sphereButton = new RedColorDecorator(new SphereButtonClick());
+        cubeButton = new ScaleDecorator(new CubeButtonClick());
+        cylinderButton = new RotationDecorator(new CylinderButtonClick());
     }
 
     void Update()
@@ -45,7 +48,8 @@ public class PlayerMB : MonoBehaviour, PlayerInputController.IBaseActions
             Vector3 worldPosition = GetMouseWorldPosition();
             if (worldPosition != Vector3.zero)
             {
-                sphereButton.Click(worldPosition);
+                CreateShapeCommand command = new CreateShapeCommand(sphereButton, worldPosition);
+                commandInvoker.ExecuteCommand(command);
             }
         }
     }
@@ -57,7 +61,8 @@ public class PlayerMB : MonoBehaviour, PlayerInputController.IBaseActions
             Vector3 worldPosition = GetMouseWorldPosition();
             if (worldPosition != Vector3.zero)
             {
-                cubeButton.Click(worldPosition);
+                CreateShapeCommand command = new CreateShapeCommand(cubeButton, worldPosition);
+                commandInvoker.ExecuteCommand(command);
             }
         }
     }
@@ -69,7 +74,8 @@ public class PlayerMB : MonoBehaviour, PlayerInputController.IBaseActions
             Vector3 worldPosition = GetMouseWorldPosition();
             if (worldPosition != Vector3.zero)
             {
-                cylinderButton.Click(worldPosition);
+                CreateShapeCommand command = new CreateShapeCommand(cylinderButton, worldPosition);
+                commandInvoker.ExecuteCommand(command);
             }
         }
     }
@@ -95,5 +101,13 @@ public class PlayerMB : MonoBehaviour, PlayerInputController.IBaseActions
         }
         
         return Vector3.zero;
+    }
+
+    public void OnEsc(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            commandInvoker.Undo();
+        }
     }
 }

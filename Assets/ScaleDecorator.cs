@@ -1,17 +1,17 @@
 using UnityEngine;
 
-public class ScaleDecorator : IActionButtonClick
+public class ScaleDecorator : IShape
 {
-    private IActionButtonClick wrapped;
+    private IShape wrapped;
 
-    public ScaleDecorator(IActionButtonClick wrapped)
+    public ScaleDecorator(IShape wrapped)
     {
         this.wrapped = wrapped;
     }
 
-    public GameObject Click(Vector3 position)
+    public GameObject Click()
     {
-        GameObject obj = wrapped.Click(position);
+        GameObject obj = wrapped.Click();
         
         float scaleMultiplier = 2f;
         obj.transform.localScale = obj.transform.localScale * scaleMultiplier;

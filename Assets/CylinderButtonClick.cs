@@ -1,12 +1,11 @@
 using UnityEngine;
 
-public class CylinderButtonClick : IActionButtonClick
+public class CylinderButtonClick : IShape
 {
-    public GameObject Click(Vector3 position)
+    public GameObject Click()
     {
         GameObject cylinder = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
-        position.y += 1.0f;
-        cylinder.transform.position = position;
+        cylinder.transform.position += Vector3.up * 1.0f;
         ApplyColorShader(cylinder);
         return cylinder;
     }

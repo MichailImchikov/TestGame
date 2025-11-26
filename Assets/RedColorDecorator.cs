@@ -1,17 +1,17 @@
 using UnityEngine;
 
-public class RedColorDecorator : IActionButtonClick
+public class RedColorDecorator : IShape
 {
-    private IActionButtonClick wrapped;
+    private IShape wrapped;
 
-    public RedColorDecorator(IActionButtonClick wrapped)
+    public RedColorDecorator(IShape wrapped)
     {
         this.wrapped = wrapped;
     }
 
-    public GameObject Click(Vector3 position)
+    public GameObject Click()
     {
-        GameObject obj = wrapped.Click(position);
+        GameObject obj = wrapped.Click();
         Renderer renderer = obj.GetComponent<Renderer>();
         if (renderer != null && renderer.material != null)
         {
