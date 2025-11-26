@@ -1,0 +1,101 @@
+{
+    "version": 1,
+    "name": "PlayerInputController",
+    "maps": [
+        {
+            "name": "Base",
+            "id": "d76871e4-72d6-4991-aa37-b84cfa9e8041",
+            "actions": [
+                {
+                    "name": "1Button",
+                    "type": "Button",
+                    "id": "de222882-d9ea-4b0b-b007-e297ab1e4905",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "2Button",
+                    "type": "Button",
+                    "id": "750c63d8-0fc2-4bb2-9fa3-6ae1baf04166",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "3Button",
+                    "type": "Button",
+                    "id": "ca8d7de1-1e5a-47ec-b7f2-790b6ab4d09f",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Esc",
+                    "type": "Button",
+                    "id": "04a974f6-3235-45d3-b72c-ef88e5f3ec96",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "fdbe8a07-c40d-4850-8869-b844e9edbef2",
+                    "path": "<Keyboard>/1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";KeybourdMouse",
+                    "action": "1Button",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "230e5bc7-c038-4ab1-8cda-b567c9297556",
+                    "path": "<Keyboard>/2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "2Button",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4f6add1d-6213-4821-b0a0-2b0c1277397c",
+                    "path": "<Keyboard>/3",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "3Button",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d6aa1fdc-7b1a-4d1c-93a2-426fd1e25d20",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Esc",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": [
+        {
+            "name": "KeybourdMouse",
+            "bindingGroup": "KeybourdMouse",
+            "devices": []
+        }
+    ]
+}
