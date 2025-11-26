@@ -16,6 +16,7 @@ public class PlayerMB : MonoBehaviour, PlayerInputController.IBaseActions
         playerInputController.Enable();
         commandInvoker = new CommandInvoker();
     }
+    
     public void OnEsc(InputAction.CallbackContext context)
     {
         if (context.performed)
@@ -26,15 +27,17 @@ public class PlayerMB : MonoBehaviour, PlayerInputController.IBaseActions
 
     public void OnMouse(InputAction.CallbackContext context)
     {
-        if(_currentAction is not null)
+        if (context.performed && _currentAction != null)
         {
-            _currentAction.Click();
+            _currentAction.Click(commandInvoker);
         }
     }
+    
     public void GetNewAction(IActionClick action)
     {
         _currentAction = action;
     }
+    
     void OnDestroy()
     {
         if (playerInputController != null)

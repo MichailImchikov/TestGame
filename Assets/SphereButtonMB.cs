@@ -8,7 +8,7 @@ public class SphereButtonMB : ButtonMB
     {
         if (playerMB != null)
         {
-            IShape sphereShape = new RedColorDecorator(new Sphere());
+            IShape sphereShape = new ScaleDecorator (new RedColorDecorator(new Sphere()));
             Camera camera = Camera.main;
             LayerMask platformLayer = LayerMask.GetMask("Platform");
             

@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 
 public interface IActionClick
 {
-    void Click();
+    void Click(CommandInvoker commandInvoker);
 }
 
 public class CreateShape : IActionClick
@@ -19,13 +19,13 @@ public class CreateShape : IActionClick
         this.platformLayer = layer;
     }
 
-    public void Click()
+    public void Click(CommandInvoker commandInvoker)
     {
         Vector3 position = GetPosition();
         if (position != Vector3.zero)
         {
-            GameObject obj = shape.CreateShape();
-            obj.transform.position = position + obj.transform.localPosition;
+            CreateShapeCommand command = new CreateShapeCommand(shape, position);
+            commandInvoker.ExecuteCommand(command);
         }
     }
 
@@ -66,12 +66,14 @@ public class PlayerMove : IActionClick
         this.platformLayer = layer;
     }
 
-    public void Click()
+    public void Click(CommandInvoker commandInvoker)
     {
         Vector3 targetPosition = GetPosition();
         if (targetPosition != Vector3.zero)
         {
-            playerObject.transform.position = targetPosition + Vector3.up * 0.5f;
+            Vector3 finalPosition = targetPosition + Vector3.up * 0.5f;
+            PlayerMoveCommand command = new PlayerMoveCommand(playerObject, finalPosition);
+            commandInvoker.ExecuteCommand(command);
         }
     }
 

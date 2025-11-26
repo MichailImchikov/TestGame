@@ -15,7 +15,8 @@ public class CreateShapeCommand : ICommand
     public void Execute()
     {
         createdObject = shape.CreateShape();
-        createdObject.transform.position = createdObject.transform.localPosition + position;
+        Vector3 offset = createdObject.transform.position;
+        createdObject.transform.position = position + offset;
     }
 
     public void Undo()

@@ -8,7 +8,7 @@ public class CylinderButtonMB : ButtonMB
     {
         if (playerMB != null)
         {
-            IShape cylinderShape = new RotationDecorator(new Cylinder());
+            IShape cylinderShape = /*new RotationDecorator(*/new Cylinder()/*)*/;
             Camera camera = Camera.main;
             LayerMask platformLayer = LayerMask.GetMask("Platform");
             
