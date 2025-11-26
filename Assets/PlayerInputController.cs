@@ -93,36 +93,18 @@ public partial class @PlayerInputController: IInputActionCollection2, IDisposabl
             ""id"": ""d76871e4-72d6-4991-aa37-b84cfa9e8041"",
             ""actions"": [
                 {
-                    ""name"": ""1Button"",
-                    ""type"": ""Button"",
-                    ""id"": ""de222882-d9ea-4b0b-b007-e297ab1e4905"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""2Button"",
-                    ""type"": ""Button"",
-                    ""id"": ""750c63d8-0fc2-4bb2-9fa3-6ae1baf04166"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""3Button"",
-                    ""type"": ""Button"",
-                    ""id"": ""ca8d7de1-1e5a-47ec-b7f2-790b6ab4d09f"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""Esc"",
                     ""type"": ""Button"",
                     ""id"": ""04a974f6-3235-45d3-b72c-ef88e5f3ec96"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Mouse"",
+                    ""type"": ""Button"",
+                    ""id"": ""a4809a2e-7186-4a42-a94c-b2b6e37aea24"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
@@ -132,45 +114,23 @@ public partial class @PlayerInputController: IInputActionCollection2, IDisposabl
             ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""fdbe8a07-c40d-4850-8869-b844e9edbef2"",
-                    ""path"": ""<Keyboard>/1"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";KeybourdMouse"",
-                    ""action"": ""1Button"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""230e5bc7-c038-4ab1-8cda-b567c9297556"",
-                    ""path"": ""<Keyboard>/2"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""2Button"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""4f6add1d-6213-4821-b0a0-2b0c1277397c"",
-                    ""path"": ""<Keyboard>/3"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""3Button"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""d6aa1fdc-7b1a-4d1c-93a2-426fd1e25d20"",
                     ""path"": ""<Keyboard>/escape"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Esc"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""36fdae11-3cdd-427d-8837-8b5bf9f4f5ca"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Mouse"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -187,10 +147,8 @@ public partial class @PlayerInputController: IInputActionCollection2, IDisposabl
 }");
         // Base
         m_Base = asset.FindActionMap("Base", throwIfNotFound: true);
-        m_Base__1Button = m_Base.FindAction("1Button", throwIfNotFound: true);
-        m_Base__2Button = m_Base.FindAction("2Button", throwIfNotFound: true);
-        m_Base__3Button = m_Base.FindAction("3Button", throwIfNotFound: true);
         m_Base_Esc = m_Base.FindAction("Esc", throwIfNotFound: true);
+        m_Base_Mouse = m_Base.FindAction("Mouse", throwIfNotFound: true);
     }
 
     ~@PlayerInputController()
@@ -271,10 +229,8 @@ public partial class @PlayerInputController: IInputActionCollection2, IDisposabl
     // Base
     private readonly InputActionMap m_Base;
     private List<IBaseActions> m_BaseActionsCallbackInterfaces = new List<IBaseActions>();
-    private readonly InputAction m_Base__1Button;
-    private readonly InputAction m_Base__2Button;
-    private readonly InputAction m_Base__3Button;
     private readonly InputAction m_Base_Esc;
+    private readonly InputAction m_Base_Mouse;
     /// <summary>
     /// Provides access to input actions defined in input action map "Base".
     /// </summary>
@@ -287,21 +243,13 @@ public partial class @PlayerInputController: IInputActionCollection2, IDisposabl
         /// </summary>
         public BaseActions(@PlayerInputController wrapper) { m_Wrapper = wrapper; }
         /// <summary>
-        /// Provides access to the underlying input action "Base/_1Button".
-        /// </summary>
-        public InputAction @_1Button => m_Wrapper.m_Base__1Button;
-        /// <summary>
-        /// Provides access to the underlying input action "Base/_2Button".
-        /// </summary>
-        public InputAction @_2Button => m_Wrapper.m_Base__2Button;
-        /// <summary>
-        /// Provides access to the underlying input action "Base/_3Button".
-        /// </summary>
-        public InputAction @_3Button => m_Wrapper.m_Base__3Button;
-        /// <summary>
         /// Provides access to the underlying input action "Base/Esc".
         /// </summary>
         public InputAction @Esc => m_Wrapper.m_Base_Esc;
+        /// <summary>
+        /// Provides access to the underlying input action "Base/Mouse".
+        /// </summary>
+        public InputAction @Mouse => m_Wrapper.m_Base_Mouse;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -328,18 +276,12 @@ public partial class @PlayerInputController: IInputActionCollection2, IDisposabl
         {
             if (instance == null || m_Wrapper.m_BaseActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_BaseActionsCallbackInterfaces.Add(instance);
-            @_1Button.started += instance.On_1Button;
-            @_1Button.performed += instance.On_1Button;
-            @_1Button.canceled += instance.On_1Button;
-            @_2Button.started += instance.On_2Button;
-            @_2Button.performed += instance.On_2Button;
-            @_2Button.canceled += instance.On_2Button;
-            @_3Button.started += instance.On_3Button;
-            @_3Button.performed += instance.On_3Button;
-            @_3Button.canceled += instance.On_3Button;
             @Esc.started += instance.OnEsc;
             @Esc.performed += instance.OnEsc;
             @Esc.canceled += instance.OnEsc;
+            @Mouse.started += instance.OnMouse;
+            @Mouse.performed += instance.OnMouse;
+            @Mouse.canceled += instance.OnMouse;
         }
 
         /// <summary>
@@ -351,18 +293,12 @@ public partial class @PlayerInputController: IInputActionCollection2, IDisposabl
         /// <seealso cref="BaseActions" />
         private void UnregisterCallbacks(IBaseActions instance)
         {
-            @_1Button.started -= instance.On_1Button;
-            @_1Button.performed -= instance.On_1Button;
-            @_1Button.canceled -= instance.On_1Button;
-            @_2Button.started -= instance.On_2Button;
-            @_2Button.performed -= instance.On_2Button;
-            @_2Button.canceled -= instance.On_2Button;
-            @_3Button.started -= instance.On_3Button;
-            @_3Button.performed -= instance.On_3Button;
-            @_3Button.canceled -= instance.On_3Button;
             @Esc.started -= instance.OnEsc;
             @Esc.performed -= instance.OnEsc;
             @Esc.canceled -= instance.OnEsc;
+            @Mouse.started -= instance.OnMouse;
+            @Mouse.performed -= instance.OnMouse;
+            @Mouse.canceled -= instance.OnMouse;
         }
 
         /// <summary>
@@ -417,32 +353,18 @@ public partial class @PlayerInputController: IInputActionCollection2, IDisposabl
     public interface IBaseActions
     {
         /// <summary>
-        /// Method invoked when associated input action "1Button" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void On_1Button(InputAction.CallbackContext context);
-        /// <summary>
-        /// Method invoked when associated input action "2Button" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void On_2Button(InputAction.CallbackContext context);
-        /// <summary>
-        /// Method invoked when associated input action "3Button" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void On_3Button(InputAction.CallbackContext context);
-        /// <summary>
         /// Method invoked when associated input action "Esc" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnEsc(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Mouse" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnMouse(InputAction.CallbackContext context);
     }
 }

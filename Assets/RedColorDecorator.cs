@@ -9,9 +9,9 @@ public class RedColorDecorator : IShape
         this.wrapped = wrapped;
     }
 
-    public GameObject Click()
+    public GameObject CreateShape()
     {
-        GameObject obj = wrapped.Click();
+        GameObject obj = wrapped.CreateShape();
         Renderer renderer = obj.GetComponent<Renderer>();
         if (renderer != null && renderer.material != null)
         {

@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class SphereButtonClick : IShape
+public class Sphere : IShape
 {
-    public GameObject Click()
+    public GameObject CreateShape()
     {
         GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
         sphere.transform.position += Vector3.up * 0.5f;

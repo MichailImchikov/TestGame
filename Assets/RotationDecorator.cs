@@ -9,9 +9,9 @@ public class RotationDecorator : IShape
         this.wrapped = wrapped;
     }
 
-    public GameObject Click()
+    public GameObject CreateShape()
     {
-        GameObject obj = wrapped.Click();
+        GameObject obj = wrapped.CreateShape();
         obj.transform.Rotate(0f, 90f, 0f);
         return obj;
     }

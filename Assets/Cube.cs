@@ -1,11 +1,11 @@
 using UnityEngine;
 
-public class CubeButtonClick : IShape
+public class Cube : IShape
 {
-    public GameObject Click()
+    public GameObject CreateShape()
     {
         GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
-        cube.transform.position += Vector3.up * 0.5f;
+        cube.transform.localPosition += Vector3.up * 0.5f;
         ApplyColorShader(cube);
         return cube;
     }

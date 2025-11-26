@@ -9,9 +9,9 @@ public class ScaleDecorator : IShape
         this.wrapped = wrapped;
     }
 
-    public GameObject Click()
+    public GameObject CreateShape()
     {
-        GameObject obj = wrapped.Click();
+        GameObject obj = wrapped.CreateShape();
         
         float scaleMultiplier = 2f;
         obj.transform.localScale = obj.transform.localScale * scaleMultiplier;

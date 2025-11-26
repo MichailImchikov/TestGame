@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class CylinderButtonClick : IShape
+public class Cylinder : IShape
 {
-    public GameObject Click()
+    public GameObject CreateShape()
     {
         GameObject cylinder = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
         cylinder.transform.position += Vector3.up * 1.0f;
