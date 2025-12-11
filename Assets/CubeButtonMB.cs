@@ -1,19 +1,13 @@
 using UnityEngine;
 
-public class CubeButtonMB : ButtonMB
+public class CubeButtonMB : AObservable
 {
-    [SerializeField] private PlayerMB playerMB;
-
-    public override void OnClick()
+    public override IActionClick GetAction()
     {
-        if (playerMB != null)
-        {
-            IShape cubeShape = new ScaleDecorator(new Cube());
-            Camera camera = Camera.main;
-            LayerMask platformLayer = LayerMask.GetMask("Platform");
-            
-            CreateShape createShape = new CreateShape(cubeShape, camera, platformLayer);
-            playerMB.GetNewAction(createShape);
-        }
+        IShape cubeShape = new ScaleDecorator(new Cube());
+        Camera camera = Camera.main;
+        LayerMask platformLayer = LayerMask.GetMask("Platform");
+
+        return new CreateShape(cubeShape, camera, platformLayer);
     }
 }

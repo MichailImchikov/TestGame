@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerMB : MonoBehaviour, PlayerInputController.IBaseActions
+public class PlayerMB : MonoBehaviour, PlayerInputController.IBaseActions, IObserver
 {
     private PlayerInputController playerInputController;
     private CommandInvoker commandInvoker;
@@ -46,5 +46,10 @@ public class PlayerMB : MonoBehaviour, PlayerInputController.IBaseActions
             playerInputController.Disable();
             playerInputController.Dispose();
         }
+    }
+
+    public void UpdateAction(IActionClick action)
+    {
+        _currentAction = action;
     }
 }

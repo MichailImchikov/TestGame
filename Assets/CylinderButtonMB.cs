@@ -1,19 +1,13 @@
 using UnityEngine;
 
-public class CylinderButtonMB : ButtonMB
+public class CylinderButtonMB : AObservable
 {
-    [SerializeField] private PlayerMB playerMB;
-
-    public override void OnClick()
+    public override IActionClick  GetAction()
     {
-        if (playerMB != null)
-        {
             IShape cylinderShape = /*new RotationDecorator(*/new Cylinder()/*)*/;
             Camera camera = Camera.main;
             LayerMask platformLayer = LayerMask.GetMask("Platform");
             
-            CreateShape createShape = new CreateShape(cylinderShape, camera, platformLayer);
-            playerMB.GetNewAction(createShape);
-        }
+            return new CreateShape(cylinderShape, camera, platformLayer);
     }
 }

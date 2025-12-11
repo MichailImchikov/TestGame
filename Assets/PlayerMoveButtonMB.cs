@@ -1,18 +1,14 @@
 using UnityEngine;
 
-public class PlayerMoveButtonMB : ButtonMB
+public class PlayerMoveButtonMB : AObservable
 {
     [SerializeField] private PlayerMB playerMB;
 
-    public override void OnClick()
+    public override IActionClick GetAction()
     {
-        if (playerMB != null)
-        {
-            Camera camera = Camera.main;
-            LayerMask platformLayer = LayerMask.GetMask("Platform");
-            
-            PlayerMove playerMove = new PlayerMove(playerMB, camera, platformLayer);
-            playerMB.GetNewAction(playerMove);
-        }
+        Camera camera = Camera.main;
+        LayerMask platformLayer = LayerMask.GetMask("Platform");
+
+        return new PlayerMove(playerMB, camera, platformLayer);
     }
 }

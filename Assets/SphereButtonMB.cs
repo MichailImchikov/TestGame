@@ -1,19 +1,13 @@
 using UnityEngine;
 
-public class SphereButtonMB : ButtonMB
+public class SphereButtonMB : AObservable
 {
-    [SerializeField] private PlayerMB playerMB;
-
-    public override void OnClick()
+    public override IActionClick GetAction()
     {
-        if (playerMB != null)
-        {
-            IShape sphereShape = new ScaleDecorator (new RedColorDecorator(new Sphere()));
-            Camera camera = Camera.main;
-            LayerMask platformLayer = LayerMask.GetMask("Platform");
-            
-            CreateShape createShape = new CreateShape(sphereShape, camera, platformLayer);
-            playerMB.GetNewAction(createShape);
-        }
+        IShape sphereShape = new ScaleDecorator(new RedColorDecorator(new Sphere()));
+        Camera camera = Camera.main;
+        LayerMask platformLayer = LayerMask.GetMask("Platform");
+
+        return new CreateShape(sphereShape, camera, platformLayer);
     }
 }
