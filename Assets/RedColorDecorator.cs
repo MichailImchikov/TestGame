@@ -1,17 +1,14 @@
 using UnityEngine;
 
-public class RedColorDecorator : IShape
+public class RedColorDecorator : Decorator
 {
-    private IShape wrapped;
-
-    public RedColorDecorator(IShape wrapped)
+    public RedColorDecorator(IShape shape) : base(shape)
     {
-        this.wrapped = wrapped;
     }
 
-    public GameObject CreateShape()
+    public override GameObject CreateShape()
     {
-        GameObject obj = wrapped.CreateShape();
+        GameObject obj = base.CreateShape();
         Renderer renderer = obj.GetComponent<Renderer>();
         if (renderer != null && renderer.material != null)
         {

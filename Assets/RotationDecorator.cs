@@ -1,30 +1,27 @@
 using UnityEngine;
 
-public class RotationDecorator : IShape
+public class RotationDecorator : Decorator
 {
-    private IShape wrapped;
-
-    public RotationDecorator(IShape wrapped)
+    public RotationDecorator(IShape shape) : base(shape)
     {
-        this.wrapped = wrapped;
     }
 
-    public GameObject CreateShape()
+    public override GameObject CreateShape()
     {
-        GameObject obj = wrapped.CreateShape();
+        GameObject obj = base.CreateShape();
         
         float originalHeight = obj.transform.position.y;
         
-        obj.transform.Rotate(90f, 0f, 0f);
+        obj.transform.Rotate(0f, 0f, 90f);
         
         Renderer renderer = obj.GetComponent<Renderer>();
-        if (renderer != null)
+/*        if (renderer != null)
         {
             float halfHeight = renderer.bounds.extents.y;
             Vector3 currentPosition = obj.transform.position;
             currentPosition.y = halfHeight;
             obj.transform.position = currentPosition;
-        }
+        }*/
         
         Debug.Log($"RotationDecorator applied rotation: {obj.transform.eulerAngles}");
         return obj;

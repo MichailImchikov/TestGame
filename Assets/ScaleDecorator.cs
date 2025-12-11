@@ -1,17 +1,14 @@
 using UnityEngine;
 
-public class ScaleDecorator : IShape
+public class ScaleDecorator : Decorator
 {
-    private IShape wrapped;
-
-    public ScaleDecorator(IShape wrapped)
+    public ScaleDecorator(IShape shape) : base(shape)
     {
-        this.wrapped = wrapped;
     }
 
-    public GameObject CreateShape()
+    public override GameObject CreateShape()
     {
-        GameObject obj = wrapped.CreateShape();
+        GameObject obj = base.CreateShape();
         
         float scaleMultiplier = 2f;
         obj.transform.localScale = obj.transform.localScale * scaleMultiplier;
